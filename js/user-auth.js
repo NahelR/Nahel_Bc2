@@ -29,7 +29,7 @@ if (loginButton) {
         } else {
             showMessage('Inicio de sesión exitoso. Redirigiendo...', false);
             // Redirige a la URL completa de GitHub Pages
-            window.location.href = 'https://nahelr.github.io/Nahel_Bc1/asignatura.html';
+            window.location.href = 'https://nahelr.github.io/Nahel_Bc2/asignatura.html';
         }
     });
 }
@@ -76,5 +76,6 @@ if (googleButton) {
         // Si no hay error, Supabase/Google manejan la redirección
     });
 }
+
 
 // No se necesita checkUserSession aquí
