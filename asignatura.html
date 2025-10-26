@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trabajos de la Asignatura</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="body-asignatura">
+    <a href="index.html" class="back-to-home-btn" title="Volver al Inicio">&#8592;</a>
+    <div class="asignatura-container">
+        <aside class="sidebar-semanas">
+            <h2>Semanas</h2>
+            <nav id="nav-semanas"><p>Cargando semanas...</p></nav>
+        </aside>
+        <main class="content-trabajos">
+            <header class="asignatura-header">
+                <h1>Arquitectura de Software</h1>
+                <p>Explora los trabajos y materiales de cada semana.</p>
+            </header>
+            <div id="contenedor-trabajos"></div>
+        </main>
+    </div>
+    <div id="file-viewer-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>Vista Previa</span>
+                <button class="close-button">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body-container"></div>
+        </div>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabaseClient.js"></script>
+<script src="js/global-auth.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

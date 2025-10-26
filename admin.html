@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <header class="admin-main-header">
+            <h1>Panel de Administración</h1>
+            <p>Gestiona los trabajos de la asignatura</p>
+        </header>
+        <main class="admin-main">
+            <section class="admin-card">
+                <h2><span class="icon">➕</span>Agregar Nuevo Trabajo</h2>
+                <form id="upload-form">
+                    <input type="text" id="titulo" placeholder="Título del trabajo" required>
+                    <textarea id="descripcion" placeholder="Descripción breve" required></textarea>
+                    <select id="semana" required>
+                        <option value="" disabled selected>-- Selecciona la semana --</option>
+                    </select>
+                    <label for="archivo" class="file-input-label">
+                        <span id="file-name-display">Seleccionar archivo...</span>
+                        <input type="file" id="archivo" required>
+                    </label>
+                    <button type="submit" class="btn btn-primary">Agregar Trabajo</button>
+                </form>
+            </section>
+            <section class="admin-card">
+                <h2><span class="icon">📋</span>Gestionar Trabajos</h2>
+                <div id="admin-trabajos-lista"></div>
+            </section>
+        </main>
+        <footer class="admin-footer">
+            <button id="logout-button" class="btn btn-logout">Cerrar Sesión</button>
+        </footer>
+    </div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabaseClient.js"></script>
+<script src="js/global-auth.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nahel - Portafolio de Ingeniería de Sistemas</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="body-index">
+    <header class="main-header">
+        <nav class="navbar">
+            <a href="#inicio" class="nav-logo">
+                <img src="foto/logoupla.png" alt="Logo UPLA">
+            </a>
+
+            <div id="user-status-container" class="user-status" style="display: none;">
+                <a href="#" id="user-display-link" class="user-display"></a> <button id="global-logout-button" class="btn btn-logout-small">Cerrar Sesión</button>
+            </div>
+            <div class="nav-links">
+                <a href="#inicio">INICIO</a>
+                <a href="#sobre-mi">SOBRE MÍ</a>
+                <a href="asignatura.html">VER ASIGNATURA</a>
+                <div class="nav-login-options" id="login-menu">
+                    <a href="#">LOGIN</a>
+                    <div class="login-dropdown">
+                        <a href="user-login.html">Usuario</a>
+                        <a href="login.html">Admin</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <section id="inicio" class="hero-section">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Hola, Soy <span class="highlight">Nahel</span></h1>
+                    <p class="subtitle">Estudiante de Ingeniería de Sistemas y Computación</p>
+                    <p class="description">
+                        Apasionado por la tecnología y el desarrollo de software. Actualmente cursando mis estudios en la Universidad Peruana Los Andes (UPLA), donde me especializo en crear soluciones innovadoras que resuelvan problemas complejos.
+                    </p>
+                    <a href="#sobre-mi" class="btn btn-primary">Conoce más sobre mí</a>
+                </div>
+                <div class="hero-image-container">
+                    <img src="foto/editar2.png" alt="Foto de Nahel">
+                </div>
+            </div>
+        </section>
+        <section id="sobre-mi" class="about-section">
+            <div class="about-content">
+                <div class="about-image-container">
+                    <img src="foto/mira.jpeg" alt="Retrato de Nahel">
+                </div>
+                <div class="about-text">
+                    <h2>Sobre Mí</h2>
+                    <p>
+                        Como futuro Ingeniero de Sistemas, mi objetivo es diseñar y desarrollar software robusto y escalable. Tengo un gran interés en áreas como la arquitectura de software, la computación en la nube y la seguridad informática. Siempre estoy aprendiendo y buscando nuevos desafíos para aplicar mis conocimientos.
+                    </p>
+                    <h3>Habilidades Clave</h3>
+                    <div class="skills-grid">
+                        <div class="skill-card"><h4>Desarrollo de Software</h4><p>Creación de aplicaciones y sistemas a medida.</p></div>
+                        <div class="skill-card"><h4>Gestión de Bases de Datos</h4><p>Diseño y optimización de bases de datos SQL y NoSQL.</p></div>
+                        <div class="skill-card"><h4>Redes y Seguridad</h4><p>Configuración y protección de infraestructuras de red.</p></div>
+                        <div class="skill-card"><h4>Cloud Computing</h4><p>Experiencia con plataformas como AWS, Azure o Google Cloud.</p></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-contact">
+                <h4>Contacto</h4>
+                <p><strong>Email:</strong> nahelbravo94@gmail.com</p>
+                <p><strong>Teléfono:</strong> +51 929 880 088</p>
+            </div>
+            <div class="footer-social">
+                <h4>Redes Sociales</h4>
+                <a href="#" target="_blank">LinkedIn</a>
+                <a href="#" target="_blank">GitHub</a>
+                <a href="#" target="_blank">Twitter</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Nahel. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabaseClient.js"></script>
+    <script src="js/global-auth.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const hrefAttribute = this.getAttribute('href');
+                if (!hrefAttribute || hrefAttribute === '#') {
+                    e.preventDefault(); return;
+                }
+                try {
+                    if (hrefAttribute.startsWith('#')) {
+                        const targetElement = document.querySelector(hrefAttribute);
+                        if (targetElement) {
+                            e.preventDefault();
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        } else { e.preventDefault(); /* Enlace roto local */ }
+                    } // Si no empieza con #, deja que navegue
+                } catch (error) { console.error("Error scroll:", error); }
+            });
+        });
+    });
+    </script>
+</body>
+</html>

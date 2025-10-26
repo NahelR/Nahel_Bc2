@@ -1,0 +1,215 @@
+/* style.css - Diseño Completo y Unificado "Verde Tóxico" (CORREGIDO FINAL) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Poppins:wght@400;600;700&display=swap');
+
+/* --- 1. VARIABLES GLOBALES Y ESTILOS BASE --- */
+:root {
+    --toxic-green: #39ff14;
+    --dark-bg: #111827;
+    --medium-bg: #1f2937;
+    --light-bg: #374151;
+    --text-primary: #f9fafb;
+    --text-secondary: #9ca3af;
+    --danger-color: #ef4444;
+    --font-primary: 'Poppins', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
+}
+
+body { font-family: var(--font-primary); margin: 0; background-color: var(--dark-bg); color: var(--text-primary); line-height: 1.6; }
+.btn { display: inline-block; padding: 0.75rem 1.5rem; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; text-decoration: none; transition: all 0.3s; }
+.btn-primary { background-color: var(--toxic-green); color: var(--dark-bg); box-shadow: 0 0 15px rgba(57, 255, 20, 0.3); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 25px rgba(57, 255, 20, 0.5); }
+.error { color: var(--danger-color); text-align: center; margin-top: 1rem; }
+input, textarea, select { width: 100%; padding: 0.75rem; background-color: var(--dark-bg); border: 1px solid var(--light-bg); border-radius: 8px; color: var(--text-primary); font-size: 1rem; box-sizing: border-box; transition: border-color 0.3s, box-shadow 0.3s; }
+input:focus, textarea:focus, select:focus { outline: none; border-color: var(--toxic-green); box-shadow: 0 0 10px rgba(57, 255, 20, 0.3); }
+
+/* --- 2. ESTILOS PARA INDEX.HTML --- */
+.body-index { background-color: var(--dark-bg); }
+.main-header { background-color: rgba(31, 41, 55, 0.8); backdrop-filter: blur(10px); border-bottom: 1px solid var(--light-bg); padding: 0 2rem; position: sticky; top: 0; width: 100%; z-index: 1000; box-sizing: border-box; }
+.navbar { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; height: 70px; }
+.nav-logo { text-decoration: none; margin-right: 1.5rem; /* Espacio a la derecha */ flex-shrink: 0; /* Evita que se encoja */ }
+.nav-logo img { height: 40px; width: auto; display: block; transition: transform 0.3s ease; }
+.nav-logo img:hover { transform: scale(1.1); }
+.nav-links { display: flex; align-items: center; margin-left: auto; /* EMPUJA A LA DERECHA */ }
+.nav-links a { color: var(--text-secondary); text-decoration: none; margin-left: 2rem; font-weight: bold; transition: color 0.3s, text-shadow 0.3s; }
+.nav-links a:hover { color: var(--toxic-green); text-shadow: 0 0 5px rgba(57, 255, 20, 0.5); }
+.hero-section { min-height: calc(100vh - 70px); display: flex; align-items: center; justify-content: center; padding: 2rem; }
+.hero-content { max-width: 1200px; display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; }
+.hero-text h1 { font-size: 4rem; margin: 0; }
+.hero-text .highlight { color: var(--toxic-green); font-family: var(--font-mono); }
+.hero-text .subtitle { font-size: 1.2rem; color: var(--text-secondary); margin: 1rem 0; }
+.hero-image-container { position: relative; width: 100%; max-width: 350px; margin: 0 auto; }
+.hero-image-container img { width: 100%; height: auto; border-radius: 12px; position: relative; z-index: 2; transition: transform 0.4s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+.hero-image-container:hover img { transform: scale(1.05); }
+.hero-image-container::after { content: ''; position: absolute; width: 100%; height: 100%; border: 3px solid var(--toxic-green); border-radius: 12px; top: 20px; left: 20px; z-index: 1; transition: all 0.4s ease; box-sizing: border-box; }
+.hero-image-container:hover::after { top: 10px; left: 10px; }
+.about-section { background-color: var(--medium-bg); padding: 6rem 2rem; }
+.about-content { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 300px 1fr; gap: 4rem; align-items: center; }
+.about-image-container img { width: 100%; border-radius: 50%; border: 5px solid var(--light-bg); box-shadow: 0 0 20px rgba(57, 255, 20, 0.2); }
+.about-text h2 { font-size: 2.5rem; color: var(--toxic-green); font-family: var(--font-mono); margin-top: 0; }
+.skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.5rem; }
+.skill-card { background-color: var(--light-bg); padding: 1.5rem; border-radius: 8px; transition: transform 0.3s, box-shadow 0.3s; }
+/* --- ESTILOS PARA PIE DE PÁGINA (CORREGIDO) --- */
+.main-footer {
+    background-color: var(--dark-bg);
+    border-top: 1px solid var(--light-bg);
+    padding: 3rem 2rem;
+    color: var(--text-secondary);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; /* <-- ESTA LÍNEA PONE LOS ELEMENTOS LADO A LADO */
+    justify-content: space-between; /* <-- Separa Contacto y Redes Sociales */
+    gap: 2rem; /* Espacio entre ellos si se encogen */
+    flex-wrap: wrap; /* Permite que se apilen si no caben */
+}
+
+.footer-contact h4, .footer-social h4 {
+    color: var(--text-primary);
+    font-size: 1.2rem;
+    margin-top: 0; /* Asegura que no haya margen superior extra */
+    margin-bottom: 1rem;
+}
+ .footer-contact p {
+     margin-bottom: 0.5rem; /* Menos espacio entre líneas de contacto */
+ }
+
+
+.footer-social a {
+    display: block;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s;
+}
+
+.footer-social a:hover {
+    color: var(--toxic-green);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--light-bg);
+}
+
+/* --- AJUSTE RESPONSIVE PARA EL FOOTER --- */
+@media (max-width: 900px) {
+    .footer-content {
+        flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+        text-align: center; /* Centra el texto */
+        align-items: center; /* Centra los bloques */
+    }
+     .footer-contact, .footer-social {
+         width: 100%; /* Ocupa todo el ancho en móvil */
+         margin-bottom: 2rem; /* Espacio entre bloques apilados */
+     }
+     .footer-social {
+          margin-bottom: 0; /* Quita margen extra al último elemento */
+     }
+}
+
+/* --- 3. ESTILOS PARA ASIGNATURA.HTML --- */
+.body-asignatura { background-color: var(--dark-bg); color: var(--text-primary); font-family: var(--font-primary); }
+.back-to-home-btn { position: fixed; top: 20px; left: 20px; background-color: var(--medium-bg); color: var(--toxic-green); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; text-decoration: none; z-index: 1001; border: 1px solid var(--light-bg); transition: all 0.3s ease; }
+.back-to-home-btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(57, 255, 20, 0.5); }
+.asignatura-container { display: flex; min-height: 100vh; }
+.sidebar-semanas { width: 280px; background-color: var(--medium-bg); border-right: 1px solid var(--light-bg); padding: 2rem; flex-shrink: 0; }
+.sidebar-semanas h2 { color: var(--toxic-green); font-family: var(--font-mono); margin-top: 0; text-align: center; }
+#nav-semanas a { display: block; color: var(--text-secondary); text-decoration: none; padding: 0.75rem 1.5rem; margin-bottom: 0.5rem; border-radius: 8px; font-weight: bold; transition: all 0.3s ease; border: 1px solid transparent; }
+#nav-semanas a:hover { background-color: var(--light-bg); color: var(--text-primary); }
+#nav-semanas a.active { background-color: var(--toxic-green); color: var(--dark-bg); border-color: var(--toxic-green); box-shadow: 0 0 15px rgba(57, 255, 20, 0.3); }
+.content-trabajos { flex-grow: 1; padding: 3rem 4rem; overflow-y: auto; }
+.asignatura-header { text-align: center; margin-bottom: 3rem; }
+.asignatura-header h1 { font-size: 3rem; margin: 0; }
+.asignatura-header p { color: var(--text-secondary); font-size: 1.2rem; }
+#contenedor-trabajos { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 2rem; }
+.trabajo-card-v2 { background-color: var(--medium-bg); border: 1px solid var(--light-bg); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s ease; }
+.trabajo-card-v2:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+.trabajo-card-v2 .card-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+.trabajo-card-v2 h4 { color: var(--toxic-green); font-family: var(--font-mono); margin: 0 0 0.5rem 0; font-size: 1.3rem; }
+.trabajo-card-v2 p { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; flex-grow: 1; }
+.card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: auto; }
+.card-actions .btn { padding: 0.75rem; border: 1px solid var(--toxic-green); border-radius: 8px; font-weight: bold; cursor: pointer; text-decoration: none; text-align: center; transition: all 0.3s ease; }
+.card-actions .btn-descargar { background-color: var(--toxic-green); color: var(--dark-bg); }
+.card-actions .btn-descargar:hover { background-color: transparent; color: var(--toxic-green); }
+.card-actions .btn-ver { background-color: transparent; color: var(--toxic-green); }
+.card-actions .btn-ver:hover { background-color: var(--toxic-green); color: var(--dark-bg); }
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(15, 23, 42, 0.9); padding: 2rem; box-sizing: border-box; }
+.modal.visible { display: flex; align-items: center; justify-content: center; }
+.modal-content { background-color: #1e293b; border-radius: 12px; width: 100%; height: 100%; max-width: 1200px; display: flex; flex-direction: column; box-shadow: 0 10px 30px rgba(0,0,0,0.5); overflow: hidden; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem; background-color: #334155; color: #cbd5e1; flex-shrink: 0; }
+.close-button { background: #475569; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; font-size: 1.2rem; line-height: 30px; text-align: center; cursor: pointer; transition: background-color 0.2s; }
+.close-button:hover { background-color: #ef4444; }
+.modal-body { flex-grow: 1; }
+.modal-body img { width: 100%; height: 100%; object-fit: contain; }
+.modal-body iframe { width: 100%; height: 100%; border: none; }
+
+/* --- 4. ESTILOS PARA LOGIN Y ADMIN --- */
+.body-login { display: flex; justify-content: center; align-items: center; min-height: 100vh; background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%); }
+.login-card { background-color: var(--medium-bg); padding: 2.5rem; border-radius: 12px; border: 1px solid var(--light-bg); box-shadow: 0 0 30px rgba(57, 255, 20, 0.1); width: 100%; max-width: 400px; text-align: center; }
+.login-header h2 { color: var(--toxic-green); font-family: var(--font-mono); margin: 0 0 0.5rem 0; text-shadow: 0 0 5px var(--toxic-green); }
+.input-group { text-align: left; margin-bottom: 1.5rem; }
+.admin-container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+.admin-main-header { text-align: center; margin-bottom: 2.5rem; }
+.admin-main { display: grid; grid-template-columns: 400px 1fr; gap: 2rem; align-items: flex-start; }
+.admin-card { background-color: var(--medium-bg); padding: 2rem; border-radius: 12px; border: 1px solid var(--light-bg); }
+.admin-card h2 { color: var(--toxic-green); font-family: var(--font-mono); margin-top: 0; margin-bottom: 1.5rem; border-bottom: 1px solid var(--light-bg); padding-bottom: 1rem; font-size: 1.5rem; }
+#upload-form { display: flex; flex-direction: column; gap: 1rem; }
+#upload-form button { margin-top: 1rem; }
+.file-input-label { display: block; padding: 0.75rem; background-color: var(--light-bg); border: 2px dashed var(--text-secondary); border-radius: 8px; text-align: center; cursor: pointer; transition: all 0.3s; color: var(--text-secondary); }
+input[type="file"] { display: none; }
+#admin-trabajos-lista { display: flex; flex-direction: column; gap: 1rem; }
+.admin-trabajo-card { display: flex; justify-content: space-between; align-items: center; background-color: var(--light-bg); padding: 1rem 1.5rem; border-radius: 8px; font-family: var(--font-mono); transition: all 0.3s; border-left: 4px solid transparent; }
+.trabajo-info { color: var(--text-primary); }
+.btn-danger { background-color: var(--danger-color); color: var(--text-primary); border: none; padding: 0.75rem 1.5rem; border-radius: 8px; cursor: pointer; font-weight: bold; min-width: 120px; text-align: center; transition: all 0.3s; }
+.admin-footer { text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--light-bg); }
+.btn-logout { background-color: transparent; border: 1px solid var(--text-secondary); color: var(--text-secondary); padding: 0.75rem 2rem; }
+
+/* --- ESTILOS PARA OPCIONES DE LOGIN EN NAVBAR --- */
+.nav-login-options { position: relative; display: inline-block; margin-left: 2rem; }
+.nav-login-options > a { color: var(--text-secondary); text-decoration: none; font-weight: bold; cursor: pointer; transition: color 0.3s, text-shadow 0.3s; }
+.nav-login-options > a:hover { color: var(--toxic-green); text-shadow: 0 0 5px rgba(57, 255, 20, 0.5); }
+.login-dropdown { display: none; position: absolute; background-color: var(--medium-bg); min-width: 120px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5); z-index: 1; border-radius: 8px; border: 1px solid var(--light-bg); right: 0; margin-top: 5px; }
+.login-dropdown a { color: var(--text-secondary); padding: 12px 16px; text-decoration: none; display: block; margin-left: 0; text-align: left; font-weight: normal; }
+.login-dropdown a:hover { background-color: var(--light-bg); color: var(--text-primary); text-shadow: none; }
+.nav-login-options:hover .login-dropdown { display: block; }
+
+/* --- ESTILOS ADICIONALES PARA USER-LOGIN.HTML --- */
+.auth-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem; }
+.btn-secondary { background-color: transparent; color: var(--toxic-green); border: 1px solid var(--toxic-green); }
+.btn-secondary:hover { background-color: var(--toxic-green); color: var(--dark-bg); }
+.divider { text-align: center; color: var(--text-secondary); margin: 1.5rem 0; font-weight: bold; }
+.btn-google { background-color: #ffffff; color: #444; border: 1px solid #ddd; width: 100%; display: flex; align-items: center; justify-content: center; gap: 0.8rem; margin-bottom: 1.5rem; transition: background-color 0.3s, box-shadow 0.3s; }
+.google-icon { width: 18px; height: 18px; }
+.message { padding: 10px; margin-bottom: 1rem; border-radius: 4px; text-align: center; font-weight: bold; }
+.message.error { background-color: rgba(239, 68, 68, 0.2); color: var(--danger-color); }
+.message.success { background-color: rgba(57, 255, 20, 0.2); color: var(--toxic-green); }
+.back-link { margin-top: 1.5rem; font-size: 0.9rem; }
+.back-link a { color: var(--text-secondary); text-decoration: none; }
+.back-link a:hover { color: var(--toxic-green); }
+
+/* --- ESTILOS PARA ESTADO DE USUARIO EN NAVBAR --- */
+.user-status { display: flex; align-items: center; gap: 0.8rem; color: var(--text-secondary); font-size: 0.9rem; /* Quitamos márgenes auto */ }
+#user-email-display { font-weight: bold; color: var(--text-primary); }
+.btn-logout-small { background-color: transparent; border: 1px solid var(--danger-color); color: var(--danger-color); padding: 0.3rem 0.8rem; font-size: 0.8rem; border-radius: 6px; cursor: pointer; transition: all 0.3s; }
+.btn-logout-small:hover { background-color: var(--danger-color); color: var(--text-primary); }
+
+
+/* --- 5. MEDIA QUERIES (RESPONSIVE) --- */
+@media (max-width: 900px) {
+    .navbar { flex-wrap: wrap; height: auto; padding: 1rem 0; justify-content: space-between; /* Alinea logo izq, resto der */ }
+    .nav-logo { margin-right: 0; }
+    .user-status { order: 2; /* Usuario después del logo */ margin-left: auto; /* Empuja a la derecha */ margin-right: 0; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+    .nav-links { order: 3; /* Links al final */ width: 100%; margin-left: 0; margin-top: 1rem; justify-content: center; display: flex; flex-wrap: wrap; gap: 1rem; }
+    .nav-links a, .nav-links .nav-login-options { margin-left: 0; }
+    .hero-content, .about-content { grid-template-columns: 1fr; text-align: center; }
+    .admin-main { grid-template-columns: 1fr; }
+    .asignatura-container { flex-direction: column; }
+    .sidebar-semanas { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--light-bg); box-sizing: border-box; }
+    #nav-semanas { display: flex; overflow-x: auto; gap: 0.5rem; }
+    #nav-semanas a { flex-shrink: 0; }
+    .content-trabajos { padding: 2rem; }
+}

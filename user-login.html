@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acceso de Usuario</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="body-login">
+    <div class="login-card">
+        <div class="login-header">
+            <h2>Acceso de Usuario</h2>
+            <p>Inicia sesión o regístrate para ver el portafolio</p>
+        </div>
+
+        <p id="message" class="message"></p>
+
+        <form id="user-auth-form">
+            <div class="input-group">
+                <label for="user-email">Correo Electrónico</label>
+                <input type="email" id="user-email" required>
+            </div>
+            <div class="input-group">
+                <label for="user-password">Contraseña</label>
+                <input type="password" id="user-password" required>
+            </div>
+            <div class="auth-buttons">
+                <button type="button" id="login-button" class="btn btn-secondary">Iniciar Sesión</button>
+                <button type="button" id="signup-button" class="btn btn-primary">Registrarse</button>
+            </div>
+        </form>
+
+        <div class="divider">O</div>
+
+        <button id="google-signin-button" class="btn btn-google">
+            <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512" class="google-icon"><path fill="currentColor" d="M488 261.8C488 403.3 381.5 512 244 512 109.8 512 0 402.2 0 261.8 0 122.4 109.8 13.6 244 13.6c70.3 0 129.8 27.8 174.4 73.4l-65.7 64.2c-20.9-19.8-49.8-32-83.1-32-61.9 0-112.2 50.8-112.2 113.3s50.3 113.3 112.2 113.3c71.2 0 96.9-49.2 100.8-74.6H244V261.8h236.1c2.4 13.6 3.9 28.5 3.9 43.1z"></path></svg>
+            Continuar con Google
+        </button>
+
+        <p class="back-link"><a href="index.html">Volver al Inicio</a></p>
+    </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/supabaseClient.js"></script>
+<script src="js/global-auth.js"></script>
+<script src="js/user-auth.js"></script>
+</body>
+</html>
